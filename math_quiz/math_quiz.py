@@ -63,35 +63,44 @@ def create_problem(n1, n2, o):
     elif o == '*': a = n1 * n2
     return p, a
 
+
 def math_quiz():
     """
-    Conducts a t_q-question math quiz with random problems.
+    Starts the math test with random problems
 
-    t_q (total amount of questions) is a hyperparameter and needs to be set in this function.
+    The number of questions (t_q) is a hyperparameter that can be set within this function.
 
     No parameters. Final score is displayed at the end of the quiz.
     """
-    s = 0
-    t_q = 3 # some problem here i think. Should be integer?
+    score = 0
+    total_questions = 3  # Total number of questions in the quiz
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
-    for _ in range(t_q):
-        n1 = random_integer(1, 10); n2 = random_integer(1, 10); o = random_operator()
+    for _ in range(total_questions):
+        num1 = random_integer(1, 10)
+        num2 = random_integer(1, 10)
+        op = random_operator()
 
-        PROBLEM, ANSWER = create_problem(n1, n2, o)
-        print(f"\nQuestion: {PROBLEM}")
-        useranswer = input("Your answer: ")
-        useranswer = int(useranswer)
+        problem, answer = create_problem(num1, num2, op)
+        print(f"\nQuestion: {problem}")
 
-        if useranswer == ANSWER:
-            print("Correct! You earned a point.")
-            s += 1
-        else:
-            print(f"Wrong answer. The correct answer is {ANSWER}.")
+        try:
+            user_answer = int(input("Your answer: "))
+            if user_answer == answer:
+                print("Correct! You earned a point.")
+                score += 1
+            else:
+                print(f"Wrong answer. The correct answer is {answer}.")
+        except ValueError:
+            print("Invalid input. Please enter a numeric answer.")
 
-    print(f"\nGame over! Your score is: {s}/{t_q}")
+    print(f"\nGame over! Your score is: {score}/{total_questions}")
+
+if __name__ == "__main__":
+    math_quiz()
+
 
 if __name__ == "__main__":
     math_quiz()
