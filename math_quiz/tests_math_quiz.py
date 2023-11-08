@@ -1,5 +1,4 @@
 import unittest
-# from math_quiz import random_integer, random_operator, create_problem
 from math_quiz import random_integer, random_operator, create_problem
 
 class TestMathGame(unittest.TestCase):
