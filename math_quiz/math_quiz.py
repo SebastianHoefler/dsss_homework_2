@@ -68,7 +68,7 @@ def math_quiz():
     """
     Starts the math test with random problems
 
-    The number of questions (t_q) is a hyperparameter that can be set within this function.
+    total_questions is a hyperparameter that can be set within this function.
 
     No parameters. Final score is displayed at the end of the quiz.
     """
